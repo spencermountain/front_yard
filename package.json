@@ -1,0 +1,17 @@
+{
+  "author": "Spencer Kelly <spencerwater@gmail.com> (http://spencermounta.in)",
+  "name": "front_yard",
+  "description": "local semantic web",
+  "version": "0.0.1",
+  "main": "index.js",
+  "engines": [
+      "node >= 0.3.6"
+  ],
+  "dependencies": {
+    "wtf_wikipedia":"*"
+  },
+  "keywords": [],
+  "devDependencies": {},
+  "bin": {},
+  "license": "MIT"
+}
