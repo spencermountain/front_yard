@@ -1,9 +1,7 @@
 
 a laptop version of freebase, focused on usability, prototyping, and the demo scene
 
-Basically, a Semantic web for script-kiddies..
-
-it's still way better than wikidata.
+Basically, a Semantic web for script-kiddies.
 
 #Pedantic truths:
 1) it's much easier
@@ -38,14 +36,18 @@ it's still way better than wikidata.
 the actual mongodb dump is on a torrent, so hopefully i can afford it.
 
 #you are the hackor:
-to reduce the freebase dump drastically, so it will fit on a laptop, remove book editions, music tracks:
-```
-zgrep -v 'music.release_track' ./freebase-rdf-latest.gz
-```
+the most important thing to know about the freebase dump is that it is wildly redundant. It's filesize may be reduced by over 98% with a few extremely conservative filters.
 
-then cherry-pick data:
+to reduce the 250gb dump so it will fit on a laptop, remove duplicate data, book editions, music tracks, rdf junk, and internal freebase permissions, namespaces, and sourcecode, with one gnarly one-liner:
 ```
-zgrep -n '<http://rdf.freebase.com/key/wikipedia.en_title>' ./freebase-rdf-latest.gz > wp_titles.tsv
+zgrep -v 'www.w3.org\/1999\/02\/22-rdf-syntax-ns#type\|www.w3.org\/2000\/01\/rdf-schema#label\|music.release\|music.track\|music.recording\|22-rdf-syntax-ns#type\|book.book_edition\|book.isbn\|common.notable_for\|film_crew_gig\|tv.tv_series_episode\|type.namespace\|type.content\|type.permission\|common.topic.notable\|type.object.key\|key\/authority\|type.object.permission\|type.type.instance\|dataworld.freeq\|common.licensed_object' ~/freebase-rdf-latest.gz | sed 's/<http:\/\/rdf\.freebase\.com\/ns\/\([^>]*\)>/\1/g;s/<http:\/\/www\.w3\.org\/[^#]*//g' > ~/much_smaller_dump.tsv
+```
+this should take just over an hour and a half on a macbook, and reduce your filesize from 250gb to 3.4gb (98%).
+
+on a 3gb file, you can easily cherry-pick whatever data you'd like:
+```
+grep 'people.person.nationality' ~/much_smaller_dump.tsv  > ./all_nationalities.tsv
+#this takes about 30s now..
 ```
 
 ## webpages
@@ -63,6 +65,12 @@ processed transitive wikipedia redirects file [from dbpedia](http://data.dws.inf
 ## images
 pull all image external urls from freebase.. and combine it with the [fair-use wp images](https://docs.google.com/file/d/0B5V_3YYf9JnId2p1b0tJakJlQmc/edit) that were deleted in 2013.
 
+or use the dbpedia 'depictions' list:
+http://data.dws.informatik.uni-mannheim.de/dbpedia/2014/en/images_en.nt.bz2
+
+# descriptions
+from dump:
+<http://rdf.freebase.com/ns/common.topic.description>
 
 ```
 https://www.googleapis.com/freebase/v1/rdf/en/radiohead

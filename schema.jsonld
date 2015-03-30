@@ -28,8 +28,6 @@
 
 
 
-
-
 {
 "abstraction" : "",
 "abstraction_of" : "",
@@ -38,12 +36,6 @@
 "administered_by" : "",
 "administers" : "",
 "appears_in" : "",
-"automotive" : "",
-"aviation" : "",
-"begin_date" : "",
-"biology" : "",
-"book" : "",
-"broader_than" : "",
 "category" : "",
 "cause_for" : "",
 "caused_by" : "",
@@ -58,8 +50,6 @@
 "contributor" : "",
 "created" : "",
 "created_by" : "",
-"dataworld" : "",
-"description" : "",
 "discovered" : "",
 "discovered_by" : "",
 "distributed_by" : "",
@@ -67,13 +57,8 @@
 "exhibited" : "",
 "exhibited_at" : "",
 "expressed_by" : "",
-"fiction_link" : "",
-"film" : "",
-"finance" : "",
 "genre" : "",
 "genre_of" : "",
-"geocode" : "",
-"government" : "",
 "higher_rank" : "",
 "identifier" : "",
 "leader" : "",
@@ -88,7 +73,6 @@
 "member" : "",
 "member_of" : "",
 "metaschema" : "",
-"music" : "",
 "name" : "",
 "narrower_than" : "",
 "notable" : "",
@@ -118,9 +102,7 @@
 "property" : "",
 "publication" : "",
 "publication_of" : "",
-"schema" : "",
 "service_area" : "",
-"skos" : "",
 "status" : "",
 "subclass_of" : "",
 "subject" : "",
@@ -131,9 +113,7 @@
 "symbol" : "",
 "symbolizes" : "",
 "system" : "",
-"timepoint" : "",
 "title" : "",
 "tookplace_at" : "",
-"url" : "",
 "use_permitted_by" : ""
 }
